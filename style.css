@@ -1,2 +1,189 @@
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+@font-face {
+    font-family: strongFont;
+    src: url(fonts/static/Manrope-Bold.ttf);
+  }
+  @font-face {
+    font-family: normalFont;
+    src: url(fonts/static/Manrope-SemiBold.ttf);
+  }
+
+/* Colors */
+
+:root{
+    /* Primary */
+
+    /* Full Slider Bar */
+    --soft-cyan : hsl(174, 77%, 80%);
+
+    /* Slider Background */
+    --strong-cyan: hsl(174, 86%, 45%);
+
+    /* Discount Background */
+    --light-grayish-red: hsl(14, 92%, 95%);
+
+    /* Discount Text */
+    --light-red: hsl(15, 100%, 70%);
+
+    /* CTA Text */
+    --pale-blue: hsl(226, 100%, 87%);
+
+
+    /* Neutral */
+
+    /* Pricing Component Background */
+    --white: hsl(0,0%, 100%);
+
+    /* Main Background */
+    --very-pale-blue: hsl(230, 100%, 99%);
+
+    /* Empty Slider Bar */
+    --light-grayish-blue: hsl(224, 65%, 95%);
+
+    /* Toggle Background */
+    --light-grayish-blue-bis: hsl(223, 50%, 87%);
+
+    /* Text */
+    --grayish-blue: hsl(225, 20%, 60%);
+
+    /* Text & CTA Background */
+    --dark-desaturated-blue: hsl(227, 35%, 25%);    
+}
+
+/* Fonts */
+
+body{
+    font-family:normalFont, sans-serif;
+    font-size:15px;
+    color:var(--grayish-blue);
+}
+
+h1, #price{
+    color:var(--dark-desaturated-blue);
+}
+#price{
+    font-size: 30px;
+    font-family:strongFont;
+    display:inline-block;
+    position:relative;
+    top:5px;
+}
+h1{
+    font-size:28px;
+    font-family:strongFont;
+    line-height: 80%;
+}
+/* Background, and everything around the active white rectangle */
+
+body{
+    background-color: transparent;
+    background-image: url(images/bg-pattern.svg);
+    background-size: 100% 55%;
+    background-position-x:0;
+    background-position-y:0;
+    background-repeat:no-repeat;
+    height:100vh;
+    width:100vw;
+    margin:0;
+    padding:0;
+}
+
+#title{
+    height: 160px;
+    text-align:center;
+    background-color: transparent;
+    background-image:url("images/pattern-circles.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y:center;
+    padding-top:80px;
+}
+
+#component{
+    margin:auto;
+}
+
+/* widthController is like body but different not to mess up with background and total page width*/
+@media(max-width:600px){
+    #widthController{
+        padding:0 10px 0 10px;
+    }
+}
+/* Component */
+
+#component{
+    width:540px;
+    background-color:var(--white);
+    box-shadow: 0 15px 15px 0px var(--light-grayish-blue);
+    border-radius: 6px;
+}
+.componentPart{
+    padding:35px 35px 35px 35px;
+}
+
+/* Slider */
+
+ /* The switch - the box around the slider */
+ .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slide {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slide:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slide {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slide {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slide:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slide.round {
+    border-radius: 34px;
+  }
+  
+  .slide.round:before {
+    border-radius: 50%;
+  } 

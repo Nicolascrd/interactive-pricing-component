@@ -12,25 +12,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="widthController">
 
-  Simple, traffic-based pricing
-  Sign-up for our 30-day trial. No credit card required. 
+  <div id="title">
+    <h1>
+      Simple, traffic-based pricing
+      </h1>
+      <p>
+    Sign-up for our 30-day trial. No credit card required. 
+    </div>
+<div id="component">
+  <div id="topPart" class="componentPart">
+    <span id="pageviews">100K</span> Pageviews
+    <span id="price">$<span id="price_number">16</span>.00</span>/month
+    <div class="slidecontainer">
+      <input type="range" min="0" max="4" class="slider" id="myRange">
+    </div>
+    Monthly Billing
+    <label class="switch">
+      <input type="checkbox" id="toggle">
+      <span class="slide round"></span>
+    </label>
+    Yearly Billing 25% discount
+    </div>
+    <hr>
+    <div id="bottomPart" class="componentPart">
 
-  Pageviews
-  $ /month
-
-  Monthly Billing
-  Yearly Billing 25% discount
-
-  Unlimited websites
-  100% data ownership
-  Email reports
+      Unlimited websites
+      100% data ownership
+      Email reports
+    
 
   Start my trial
-  
+  </div>
+</div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://linkedin.com/in/nicolas-couraud">Nicolas Couraud</a>.
   </div>
+  </div>
 </body>
+
+<script src="myscript.js"></script> 
 </html>
