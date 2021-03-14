@@ -1,27 +1,3 @@
-/* Toutes les variables dont on a besoin pour faire les calculs 
-** All the variables we need for the calculations */
-
-const pageViewsList = ['10K', '50K', '100K', '500K', '1M'];
-const priceList = [8, 12, 16, 24, 36];
-
-
-
-
-var ourSlider = document.querySelector('.slider');
-
-console.log(ourSlider.value); //compris entre 0 et 4 pour les 5 possibilitées
-
-
-ourSlider.addEventListener('input',function(event){
-    //When the user moves the slider
-    console.log(this.value);
-})
-
-//changer les données de la page en fonction du slider
-
-ourSlider.value; //compris entre 0 et 4
-
-
 // DATA CONTROLLER
 
 var dataController = (function(){
@@ -59,7 +35,8 @@ var UIController = (function(){
         pageviews: '#pageviews',
         range: '#index',
         toggle: '#toggle',
-        slider: '.slider'
+        slider: '.slider',
+        progressBar:'.progress'
     }
 
     return {
@@ -82,7 +59,11 @@ var UIController = (function(){
             var pageViewsDOM = document.querySelector(DOMStrings.pageviews);
             console.log(pageViewsDOM);
             pageViewsDOM.textContent = pageViews;
+        },
+        progressBar: function(index){
+            document.querySelector(DOMStrings.progressBar).style.width = ['1%', '24%', '47.5%', '71%', '94%'][index];
         }
+
     }
 })()
 
@@ -111,11 +92,15 @@ var controller = (function(dataCtrl, UICtrl){
         // 3. Update the UI
         UICtrl.updateUI(price, pageViews);
 
+        // 4. Progress bar update
+        UICtrl.progressBar(input.index);
+
     }
 
     return{
         init: function(){
             setupEventListeners();
+            ctrlModif();
         }
     }
 })(dataController, UIController);
