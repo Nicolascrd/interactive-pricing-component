@@ -113,6 +113,10 @@ body{
 }
 /* Component */
 
+hr{
+  border-color:var(--very-pale-blue);
+}
+
 #component{
     width:540px;
     background-color:var(--white);
@@ -121,6 +125,15 @@ body{
 }
 .componentPart{
     padding:35px 35px 35px 35px;
+}
+
+@media(max-width: 600px){
+  #component{
+    width: 95%;
+  }
+  .componentPart{
+    padding:15px 35px 35px 35px;
+}
 }
 
 #aboveSlider{
@@ -136,15 +149,30 @@ body{
   font-family: strongFont;
   letter-spacing: 0.1em;
 }
+@media(max-width:600px){
+  .pageviews{
+    margin-top:20px;
+    margin-bottom: 15px;
+  }
+}
 
 #underSlider{
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   padding-left:15%;
   padding-top: 15px;
   
+}
+
+#underSliderMobile{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  flex-wrap:nowrap;
+  margin-top:25px;
 }
 
 .discount{
@@ -154,6 +182,30 @@ body{
   padding:3px 8px 3px 8px;
   margin-left:3%;
 }
+
+@media(max-width: 600px){
+  #underSlider{
+    flex-direction: column;
+    padding:0;
+  }
+  #aboveSlider{
+    justify-content: center;
+  }
+  .discount{
+    position:absolute;
+    left:80%;
+  }
+}
+
+@media(max-width: 430px){
+  .componentPart{
+    padding-left:5px;
+    padding-right:5px;
+  }
+}
+
+
+
 /* The slider (to change pageviews and price) */
 
 .slidecontainer{
@@ -244,6 +296,13 @@ body{
     margin-left:15px;
     margin-right: 15px;
   }
+
+  @media(max-width:600px){
+    .switch{
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
   
   /* Hide default HTML checkbox */
   .switch input {
@@ -305,6 +364,7 @@ body{
   #bottomPart{
     display: flex;
     flex-direction:row;
+
   }
   .functionalities{
     width:50%;
@@ -319,9 +379,13 @@ body{
     margin-right: 10px; 
     
   } 
+  li{
+    margin-bottom: 8px;
+  }
 
   .trial{
     background-color: var(--dark-desaturated-blue);
+    font-family: strongFont;
     color:var(--pale-blue);
     height:40px;
     width: 190px;
@@ -336,3 +400,15 @@ body{
     align-items: center;
     justify-content: center;
   }
+
+/* Mobile View */
+/* Bottom Part */
+
+@media(max-width: 600px){
+  #bottomPart{
+    flex-direction:column;
+    align-items:center;
+    text-align: center;
+  }
+
+}
