@@ -57,11 +57,9 @@ var UIController = (function(){
 
         updateUI: function(price, pageViews){
             var priceDOM = document.querySelector(DOMStrings.price)
-            console.log(priceDOM);
             priceDOM.textContent = price.toString()
 
             var pageViewsDOM = document.querySelector(DOMStrings.pageviews);
-            console.log(pageViewsDOM);
             pageViewsDOM.textContent = pageViews;
         },
 
@@ -87,7 +85,8 @@ var UIController = (function(){
             else {
                 document.querySelector('#topPart').innerHTML = '<div id="aboveSlider"><span class="pageviews"><span id="pageviews">100K</span> PAGEVIEWS</span><span><span id="price">$<span id="price_number">16</span>.00</span> / month</span></div><div class="slidecontainer"><div class="progress"></div><input type="range" min="0" max="4" class="slider" id="myRange"></div><div id="underSlider">Monthly Billing<label class="switch"><input type="checkbox" id="toggle"><span class="slide round"></span></label>Yearly Billing <span class="discount">25% discount</span></div>';
             }
-        
+
+            //IL FAUT RE SETUP LES EVENTS LISTENERS QUAND TU METS A JOUR HTML !        
     }
 
     }
@@ -102,49 +101,49 @@ var controller = (function(dataCtrl, UICtrl){
     var setupEventListeners = function(){
         var DOM = UICtrl.getDOMStrings();
 
-        window.addEventListener('resize', function(){
-            console.log('resize');
-            ctrlModif();
-        });
-        document.querySelector(DOM.slider).addEventListener('input',function(){
-            console.log('dom slider modif');
-            ctrlModif();
-        });
+        window.addEventListener('resize', htmlModif);
+        document.querySelector(DOM.slider).addEventListener('input', ctrlModif);
         document.querySelector(DOM.toggle).addEventListener('input', ctrlModif);
     }
 
     var ctrlModif = function(){
-        console.log("dans controle modif");
-
-        var input, price, pageViews, width;
-        
-       
+        var input, price, pageViews;
 
         // 1. Get the input data
         input = UICtrl.getInput();
-        console.log('input :',input);
-
-
-        // 1bis. Update HTML
-        //UICtrl.responsiveElements(UICtrl.getWidth()); 
 
         // 2. Calculate the price and pageViews
         [price, pageViews] =  [dataCtrl.priceCalc(input.index, input.toggle), dataCtrl.pageViewsCalc(input.index)];
 
         // 3. Update the UI
         UICtrl.updateUI(price, pageViews);
-        
 
         // 4. Progress bar update
         UICtrl.progressBar(input.index);
-        console.log(document.querySelector('.progress').style.width);
 
+    }
+
+    var htmlModif = function(){
+        console.log("dans html modif");
+        var width;
+
+        // 1. Get Width
+        width = UICtrl.getWidth;
+
+        // 2. Update HTML
+        UICtrl.responsiveElements(UICtrl.getWidth());
+
+        // 3. Update Data
+        ctrlModif();
+
+        // 3. Setup Event Listeners again
+        setupEventListeners();
     }
 
     return{
         init: function(){
             setupEventListeners();
-            ctrlModif();
+            htmlModif();
         }
     }
 })(dataController, UIController);
