@@ -168,6 +168,7 @@ hr{
 }
 
 #underSliderMobile{
+  font-size:13px;
   display: flex;
   flex-direction: row;
   justify-content: end;
