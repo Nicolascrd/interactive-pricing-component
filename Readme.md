@@ -1,8 +1,9 @@
+## Project Deployed : https://interactive-pricing-component-umber-ten.vercel.app/
+
 # Frontend Mentor - Interactive pricing component
 
 ![Design preview for the Interactive pricing component coding challenge](./design/desktop-preview.jpg)
 
-## Project Deployed : https://interactive-pricing-component-umber-ten.vercel.app/
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
